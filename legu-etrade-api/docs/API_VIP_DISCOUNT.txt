@@ -1,0 +1,188 @@
+折扣券
+	1)判断卡号是否可以被激活
+		方法：GET
+		资源路径: /api/discountcoupon/isvalid 
+		请求参数：{
+			"code" : "券编码"//必填
+		}
+		相应类型：json
+		相应结果：
+		{
+			"code":200,
+			"message":"",
+			body: true/false   //
+		}
+		
+	2)新增现金抵用券	
+		方法：PUT
+		资源路径: /api/discountcoupon/ 
+		请求参数：{
+			"code" : "券编码",//必填
+			"value" : "价值" , //必填 
+			"start" : "起效开始时间" ,//必填 格式2015-01-01 00:00:00
+			"end" : "起效结束时间" ,  //必填 格式2015-01-31 23:59:59
+			"threshhold": 使用门槛, //必填 100
+			"discount" : 折扣 //必填 8折则传入0.8
+			
+		}
+		相应类型：json
+		相应结果：
+		{
+			"code":200,
+			"message":"",
+			body: null   //
+		}
+		
+	3)删除
+		方法：DELETE
+		资源路径: /api/discountcoupon/ 
+		请求参数：{
+			"code" : "券编码"//必填
+		}
+		相应类型：json
+		相应结果：
+		{
+			"code":200,
+			"message":"",
+			body: null   //
+		}
+	
+	3)列表查询抵用券
+		方法：GET
+		资源路径: /api/discountcoupon/list 
+		请求参数：{
+			"ID": "ID",   //选填
+			"value":"价值",//选填
+			"validTime":"true/false", //查询在使用期限内的//选填
+			"used":"true/false",// 已使用、未使用 如需该值起效 再传个参数 "needUsed"=true //选填
+			"del":"true/false",// 已删除、未删除 如需该值起效 再传个参数 "needDelete"=true//选填
+			"discount" : 折扣 //选填 8折则传入0.8
+			
+		}
+		相应类型：json
+		相应结果：
+		{
+			"code":200,
+			"message":"",
+			body: [
+				{
+					"del":true, //是否被删除
+					"remark":null, //备注
+					"code":"20151117103601",//券编码
+					"value":1.00,//价值
+					"addtime":1447727763000,//添加时间
+					"start":1447606923000,// 有效期开始时间
+					"end":1448676690000,// 结束时间
+					"used":false,//是否被使用
+					"usedtime":null,// 使用时间
+					"threshhold":1.11,//门槛
+					"discount" : 折扣, //选填 8折则返回0.8
+					"id":"Jaeq8eSuRf-f2tecltQ0Eg"//id
+				},
+				{……}
+			]   //
+		}
+		
+	4)查询抵用券数量
+		方法：GET
+		资源路径: /api/discountcoupon/amount 
+		请求参数：{
+			"ID": "ID",//选填
+			"value":"价值",//选填
+			"validTime":"true/false", //查询在使用期限内的//选填
+			"used":"true/false",// 已使用、未使用 如需该值起效 再传个参数 "needUsed"=true//选填
+			"del":"true/false",// 已删除、未删除 如需该值起效 再传个参数 "needDelete"=true//选填
+			"discount" : 折扣 //选填 8折则传入0.8
+			
+		}
+		相应类型：json
+		相应结果：
+		{
+			"code":200,
+			"message":"",
+			body: 
+				{
+					数值
+				}
+		}
+	
+
+	跟用户有关的
+		激活一张券
+			方法：PUT
+			资源路径: /api/user-discountcoupon
+			请求参数：{
+				"code": "券编码" //必填
+			}
+			相应类型：json
+			相应结果：
+			{
+				"code":200,
+				"message":"",
+				body: 
+			}
+		是否可以消费
+			方法：GET
+			资源路径: /api/user-discountcoupon/can-consume
+			请求参数：{
+				"couponId": "券ID" ,//必填
+				"orderPrice":订单价值
+			}
+			相应类型：json
+			相应结果：
+			{
+				"code":200,//200成功 500失败
+				"message":"",//失败原因
+				body: 
+			}
+	
+		用户未使用的有效券
+			方法：GET
+			资源路径: /api/user-discountcoupon/{uid} 
+			请求参数：{				
+			}
+			相应类型：json
+			相应结果：
+			{
+				"code":200,
+				"message":"",
+				body: [
+						{
+						"couponID":"s00tvoOSTJytl3eRpEOlhw", //券id
+						"consumeTime":null, //消费时间
+						"consumed":false,//是否已消费
+						"addTime":1447980766000, //激活时间
+						"id":"nw0Dxj14ShS7I3O6LdkfvQ"//本身id
+						,"oid":null //订单id 消费后有值
+						,"uid":"1" //用户id
+						"discountcoupon": //关联的券属性
+							{
+								"del":false, //是否被删除
+								"remark":null,//备注
+								"code":"5922969784792231886",//编码
+								"value":1.00,//价值
+								"addtime":null, //添加时间 没什么用
+								"start":1447606923000,//开始起效时间
+								"end":1479445890000,//结束时间
+								"used":false,//是否被使用
+								"usedtime":null, //使用时间
+								"threshhold":1.11,//门槛
+								"id":null,
+								"discount":折扣 //8折返回0.8
+							}
+						}
+					]
+			}
+			
+		用户未使用的有效券数量
+			方法：GET
+			资源路径: /api/user-discountcoupon/{uid} 
+			请求参数：{				
+			}
+			相应类型：json
+			相应结果：
+			{
+				"code":200,
+				"message":"",
+				body: 数量
+			}	

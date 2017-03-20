@@ -1,0 +1,152 @@
+站内信
+	1)发送站内信
+		方法：PUT
+		资源路径: /api/message
+		请求参数：{
+			"title":"标题", //必填
+			"content":"内容" ,  	//必填
+			"receiveUID":"收信人id" //必填 多个id以英文逗号隔开
+		}
+		相应类型：json
+		相应结果：
+		{
+			"code":200,
+			"message":"",
+			body:{}
+		}
+		
+	2)查看消息详情
+		方法：GET
+		资源路径: /api/message/{id}
+		请求参数：{
+			
+		}
+		相应类型：json
+		相应结果：
+		{
+			"code":200,
+			"message":"",
+			body:{
+				"sentUID":"2", 	  //发送者id
+				"receiveUID":"1", //接收者id
+				"title":"测试",   //标题
+				"content":"真",   //内容
+				"type":"letter",  //类型 letter代表站内信
+				"status":1,       //状态 1成功 2失败 3删除
+				"addtime":1447381675000, //发送时间
+				"addip":"127.0.0.1",     //发送人的ip
+				"hasRead":true,          //是否已读
+				"sendUser":{"username":""},//发送人
+				"receiveUser":{"username":"qxstest"}, //接受人
+				"id":"Xo8oTaXUQi-u81JKpoIndA"  //消息的id
+			}
+		}
+	3)未读列表查询
+		方法：GET
+		资源路径: /api/message/list/unread/{uid} -->用户id
+		请求参数：{
+		}
+		相应类型：json
+		相应结果：
+		{
+			"code":200,
+			"message":"",
+			body:[
+				{
+					"sentUID":"2", 	  //发送者id
+					"receiveUID":"1", //接收者id
+					"title":"测试",   //标题
+					"content":"真",   //内容
+					"type":"letter",  //类型 letter代表站内信
+					"status":1,       //状态 1成功 2失败 3删除
+					"addtime":1447381675000, //发送时间
+					"addip":"127.0.0.1",     //发送人的ip
+					"hasRead":true,          //是否已读
+					"sendUser":{"username":""},//发送人
+					"receiveUser":{"username":"qxstest"}, //接受人
+					"id":"Xo8oTaXUQi-u81JKpoIndA"  //消息的id
+				},
+				{……}
+			]	
+		}
+		
+	4)未读数量查询
+		方法：GET
+		资源路径: /api/message/amount/unread/{uid} -->用户id
+		请求参数：{
+		}
+		相应类型：json
+		相应结果：
+		{
+			"code":200,
+			"message":"",
+			body:数值   //
+		}	
+	5)列表查询
+		方法：GET
+		资源路径: /api/message/list/{uid} -->用户id
+		请求参数：{
+		}
+		相应类型：json
+		相应结果：
+		{
+			"code":200,
+			"message":"",
+			body:[
+				{
+					"sentUID":"2", 	  //发送者id
+					"receiveUID":"1", //接收者id
+					"title":"测试",   //标题
+					"content":"真",   //内容
+					"type":"letter",  //类型 letter代表站内信
+					"status":1,       //状态 1成功 2失败 3删除
+					"addtime":1447381675000, //发送时间
+					"addip":"127.0.0.1",     //发送人的ip
+					"hasRead":true,          //是否已读
+					"sendUser":{"username":""},//发送人
+					"receiveUser":{"username":"qxstest"}, //接受人
+					"id":"Xo8oTaXUQi-u81JKpoIndA"  //消息的id
+				},
+				{……}
+			]	
+		}
+		
+	6)数量查询
+		方法：GET
+		资源路径: /api/message/amount/{uid} -->用户id
+		请求参数：{
+		}
+		相应类型：json
+		相应结果：
+		{
+			"code":200,
+			"message":"",
+			body:数值   //
+		}
+		
+	7)删除
+		方法：DELETE
+		资源路径: /api/message/{id} ->消息id  多个id以英文逗号隔开
+		请求参数：{
+		}
+		相应类型：json
+		相应结果：
+		{
+			"code":200,
+			"message":"",
+			body: 空   //
+		}
+		
+	8)将消息置为已读或未读
+		方法：POST
+		资源路径: /api/message/{id} ->消息id  多个id以英文逗号隔开
+		请求参数：{
+			"hasRead" : true或false //已读或未读
+		}
+		相应类型：json
+		相应结果：
+		{
+			"code":200,
+			"message":"",
+			body: 空   //
+		}	

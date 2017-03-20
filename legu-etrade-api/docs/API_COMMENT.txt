@@ -1,0 +1,133 @@
+评论
+1.1）保存评论的信息
+	方法：PUT
+	资源路径：/api/comments/list
+	请求参数类型：json
+	请求参数:{
+		GID:"商品的id"
+		ImgID:"商品对应图片的id"
+		replyComment:"回复的内容"
+		goodsComment:"商品的评价"
+		commentGrade:"评价的级别"（int）共10分一个星2分
+		goodsService:"评价服务"
+		serviceGrade："服务级别"（int）共10分一个星2分
+		commentStatus:"评论的状态"（int ）1：未评论  2：已评论
+		
+	}
+	响应结果的类型：json
+	响应结果：{
+		code:"",
+		message:"",
+		body:{
+			GID:"商品的id"
+			ImgID:"商品对应图片的id"
+			replyComment:"回复的内容"
+			goodsComment:"商品的评价"
+			commentGrade:"评价的级别"（int）共10分一个星2分
+			goodsService:"评价服务"
+			serviceGrade："服务级别"（int）共10分一个星2分
+			commentStatus:"评论的状态"（int ）1：未评论  2：已评论
+		}
+	}
+//---------------------------------------------------------------------
+1.2)查询对该商品所有评价
+
+	方法：GET
+	资源路径：/api/comments/getbyid/{gid}(与商品关联的gid)
+	请求参数类型：json
+	请求参数;无
+	响应结果类型：json
+	响应结果{
+		code:"",
+		message:"",
+		body:
+
+		[
+			{
+			ID:""
+			UID:"评论的人"
+			replyUID:"回复的人"
+			GID:"商品的id"
+			ImgID:"商品对应图片的id"
+			replyComment:"回复的内容"
+			goodsComment:"商品的评价"
+			commentGrade:"评价的级别"（int）共10分一个星2分
+			goodsService:"评价服务"
+			serviceGrade："服务级别"（int）共10分一个星2分
+			commentStatus:"评论的状态"（int ）1：未评论  2：已评论
+
+			},
+			{...},{...}
+		]
+	}
+//---------------------------------------------------------------------
+1.3）删除自己添加的商品的评价
+	
+	方法：GET
+	资源路径：/api/comments/delete/{id}
+	请求参数类型：json
+	请求参数id
+	响应结果类型：json
+	响应结果{
+		
+		
+	}
+//---------------------------------------------------------------------
+1.4)修改评论的状态
+
+	方法：POST
+	资源路径：/api/comments/update/status
+	请求参数类型：json
+	请求参数id
+	响应结果类型：json
+	响应结果{
+
+		code:"",
+		message:"",
+		body:
+		
+		{
+			ID:""
+			UID:"评论的人"
+			replyUID:"回复的人"
+			GID:"商品的id"
+			ImgID:"商品对应图片的id"
+			replyComment:"回复的内容"
+			goodsComment:"商品的评价"
+			commentGrade:"评价的级别"（int）共10分一个星2分
+			goodsService:"评价服务"
+			serviceGrade："服务级别"（int）共10分一个星2分
+			commentStatus:"评论的状态"（int ）1：未评论  2：已评论
+
+			}
+			
+		
+		
+	}
+//---------------------------------------------------------------------
+2.1）每一条评论对应的多张图片的查询
+
+	方法：GET
+	资源路径：/api/commentsImg/getImg/{imgid}
+	请求参数类型：json
+	请求参数:imgid
+	响应结果类型：json
+	响应结果{
+
+		code:"",
+		message:"",
+		body:
+		[
+			{
+			
+			ID:""
+			ImgID:"与评论表关联的列"
+			picture:"对应的图片"
+
+			}，
+			{...},{...}
+			
+		]
+		
+	}
+	

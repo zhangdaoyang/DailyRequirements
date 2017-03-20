@@ -1,0 +1,220 @@
+1.保存商品
+方法： PUT
+	资源路径:/api/goodsOperation/save
+	请求参数类型：json
+	请求参数：{
+		MID;//商家ID  必填
+		BID;//品牌ID  必填
+		name;//商品名称  必填
+		code;//商品编码 必填
+		 tid;//商品类型ID 必填
+		 price;//商品价格 必填 >0
+		 promotionPrice;//商品促销价格    根据促销标志判断
+		 state;//是否上架 0否 1是
+		 upTime;//上架时间
+		 downTime;//下架时间
+		 count;//库存 必填
+		 pro_start;  //促销开始时间
+		 pro_end;	//促销结束时间
+		 pro_flag; //是否促销标志 0否 1是
+		 postage; //邮费
+		 subVolumeType; //减库存方式 (拍下减库存 0 付款减库存1)
+		 barCode; //条形码
+		 goodsDesc; //宝贝介绍
+		 goodsTitle; //宝贝标题
+		 ----图片属性-----
+		 thumbpath1;//商品 缩略图1
+		 thumbpath2;//商品 缩略图2
+		 thumbpath3;//商品 缩略图3
+		 thumbpath4;//商品 缩略图4
+		 thumbpath5;//商品缩略图5
+		 content;//商品展示图
+		 -----详细信息属性-----
+		 standardNo;//产品标准号
+		 shelfLife;//保质期
+		 approveNo;// 批准文号
+		 private String usage;//食用方法和食用量
+		 commendedUser;//适宜人群
+		 notCommendedUser;// 不适宜人群
+	     ingredients;//配料表
+	     foodAdditives;//食品添加剂
+	     specifications;//具体规格
+		functions;//功能及功效
+		note;//注意事项
+		storageMethods;//储藏方法
+		isGiftBox;//是否礼盒装
+		ProductionDate;//生产日期
+		weight;//重量
+		unit;//单位
+		factoryName; //厂名
+		factoryAddr; //厂址
+		factoryTel;  //联系方式
+	}
+	响应结果类型：json
+	响应结果:{"code":"200","message":"",
+	"body":[{
+		success: 成功
+		fail:	失败
+	}],"ok":true,"bad":false}
+------------------------------------------------------------------
+2 根据GID 获取商品信息 用于修改商品回显
+ GET
+	资源路径: /api/goodsOperation/{gid}
+	请求参数类型：json
+	请求参数：{
+		gid:商品ID
+	}
+	响应结果类型：json
+	响应结果:{"code":"200","message":"",
+	"body":[{
+			"merchantName":null,   //店铺名
+			"merchantDesc":null,	//店铺描述
+			"merchantImg":null,    //店铺展示图
+			"brandName":null,     //品牌名
+			"brandDesc":null,		//品牌描述
+			"typeName":"阿胶膏",		//类型名称
+			"goodsName":"星期六阿胶-2-3",  //商品名称
+			"goodsCode":"JY006-2",		//商品编码
+			"price":333.22,				//价格
+			"promotionPrice":null,		//促销价格
+			"nowPrice":333.22,		//根据促销标志判断的价格或促销价格
+			"disCount":null,		//
+			"discountPrice":null,	//
+			"count":"930",		// 库存
+			"volume":null,		//销量
+			"addTime":null,		//添加时间
+			"pro_start":"2015-11-16 02:01:41",	//促销开始时间	
+			"pro_end":"2015-11-16 02:01:41",	//促销结束时间
+			"pro_flag":0,			//促销标志 0原价 1 促销
+			"upTime":null,//上架时间
+			"downTime":null,		//下架时间
+			"postage":null,   //邮费
+			"subVolumeType":0,	// 减库存方式
+			"barCode":null, //条形码
+			"goodsDesc":null,	// 商品描述
+			"goodsTitle":null,商品标题
+			"state":0,			// 上架状态 0 未上架 1 上架
+			"comment":0,  //评论数
+			"thumb_path_1":"D://img/1-2-3.jpg",	//展示图片1
+			"thumb_path_2":"D://img/2-2-3.jpg",	//展示图片2
+			"thumb_path_3":"D://img/3-2-3.jpg",	//展示图片3
+			"thumb_path_4":"D://img/4-2-3.jpg",	//展示图片4
+			"thumb_path_5":"D://img/5-2-3.jpg",	//展示图片5
+			"content":"<h3>hello-2-3<h3>",			//大图
+			
+			"standardNo":"星期六阿胶标准号003-2",  //产品标准号
+			"shelfLife":null,   //保质期
+			"approveNo":null,//批准文号
+			"usage":null,  //食用方法和食用量
+			"commendedUser":null, //适宜人群
+			"notCommendedUser":null,       	 //不适宜人群
+			"ingredients":null, 	 //配料表
+			"foodAdditives":null,		 //食品添加剂
+			"specifications":null,	 //具体规格
+			"ingredient":null,	 //成分含量
+			"functions":null,	 //功能及功效
+			"note":null,	 //注意事项
+			"storageMethods":null, //储藏方法
+			"isGiftBox":null, //是否礼盒装
+			"weight":null,//重量
+			"unit":null,//单位
+			"factoryName":null,//生产厂家
+			"factoryAddr":null,//生产地址
+			"factoryTel":null,//厂家电话
+			"productionDate":null,//生产日期
+			"mid":"-2",				//所属商家ID
+			"gid":"-_ctCfR9ShK5_6tdISLLNA", 	//商品ID
+			"bid":"-2",				//品牌ID
+			"tid":"2"				//类型ID
+	}],"ok":true,"bad":false}
+-------------------------------------------------------------------------
+3.修改商品
+方法： PUT
+	资源路径:/api/goodsOperation/update/{gid}
+	请求参数类型：json
+	请求参数：{
+		gid： 修改的商品ID
+	
+	-------商品属性---------------
+		MID;//商家ID  必填
+		BID;//品牌ID  必填
+		name;//商品名称  必填
+		code;//商品编码 必填
+		 tid;//商品类型ID 必填
+		 price;//商品价格 必填 >0
+		 promotionPrice;//商品促销价格    根据促销标志判断
+		 state;//是否上架 0否 1是
+		 upTime;//上架时间
+		 downTime;//下架时间
+		 count;//库存 必填
+		 pro_start;  //促销开始时间
+		 pro_end;	//促销结束时间
+		 pro_flag; //是否促销标志 0否 1是
+		 postage; //邮费
+		 subVolumeType; //减库存方式 (拍下减库存 0 付款减库存1)
+		 barCode; //条形码
+		 goodsDesc; //宝贝介绍
+		 goodsTitle; //宝贝标题
+		 
+		 ----图片属性-----
+		 thumbpath1;//商品 缩略图1
+		 thumbpath2;//商品 缩略图2
+		 thumbpath3;//商品 缩略图3
+		 thumbpath4;//商品 缩略图4
+		 thumbpath5;//商品缩略图5
+		 content;//商品展示图
+		 -----详细信息属性-----
+		 standardNo;//产品标准号
+		 shelfLife;//保质期
+		 approveNo;// 批准文号
+		 private String usage;//食用方法和食用量
+		 commendedUser;//适宜人群
+		 notCommendedUser;// 不适宜人群
+	     ingredients;//配料表
+	     foodAdditives;//食品添加剂
+	     specifications;//具体规格
+		functions;//功能及功效
+		note;//注意事项
+		storageMethods;//储藏方法
+		isGiftBox;//是否礼盒装
+		ProductionDate;//生产日期
+		weight;//重量
+		unit;//单位
+		factoryName; //厂名
+		factoryAddr; //厂址
+		factoryTel;  //联系方式
+	}
+	响应结果类型：json
+	响应结果:{"code":"200","message":"",
+	"body":[{
+		success: 成功
+		fail:	失败
+	}],"ok":true,"bad":false}
+------------------------------------------------------------------
+4. 商品上架
+	方法： POST
+		资源路径: /api/goodsOperation/up/{gid}
+		请求参数类型：json
+		请求参数：{
+			gid：商品ID
+		}
+		响应结果类型：json
+		响应结果:{"code":"200","message":"",
+		"body":[{
+				success: 成功
+				fail:	失败
+				],"ok":true,"bad":false}
+----------------------------------------------
+5. 商品下架
+	方法： POST
+		资源路径: /api/goodsOperation/down/{gid}
+		请求参数类型：json
+		请求参数：{
+			gid：商品ID
+		}
+		响应结果类型：json
+		响应结果:{"code":"200","message":"",
+		"body":[{
+				success: 成功
+				fail:	失败
+				],"ok":true,"bad":false}

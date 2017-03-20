@@ -1,0 +1,319 @@
+1.根据商品名模糊查询商品
+方法： GET
+	资源路径: /api/goods/{goodsname}
+	请求参数类型：json
+	请求参数：{
+		goodsname:商品名称
+	}
+	响应结果类型：json
+	响应结果:{"code":"200","message":"",
+	"body":[{
+		"goodsName":"百年堂阿胶", 	        //商品名称
+		"price":109.00,"			       //原价
+		 promotionPrice":99.00,	          //促销价
+		"nowPrice":99.00,		         //根据促销价格判断当前价格是否促销和原价 用于排序
+		"weight":"360",                 //重量
+		"unit":"g",				       //重量单位
+		"thumb_path_1":"2号商品小图片",//展示图片
+		"goodsTitle":null,"			 //商品标题 
+		comment":5,					//评论数
+		"pro_start":null,		   //促销开始时间
+		"pro_end":null,		      //促销结束时间
+		"pro_flag":null,	     //促销标志  1 为促销   0位不促销
+		"visitTime":null,
+		"collectTime":null,
+		"gid":"2"			   //商品ID
+	}],"ok":true,"bad":false}
+------------------------------------------------------------------
+2.查询所有品牌
+	方法： GET
+		资源路径: /api/goods/brand/list
+		请求参数类型：json
+		请求参数：{
+			
+		}
+		响应结果类型：json
+		响应结果:{"code":"200","message":"",
+		"body":[{
+			"brandName":"", //品牌名
+			"brandDesc":"", //品牌描述
+			"bid":""        //品牌ID
+				},{.....}],"ok":true,"bad":false}
+------------------------------------------------------------------
+3.查询所有类型
+	方法： GET
+		资源路径: /api/goods/type/list
+		请求参数类型：json
+		请求参数：{
+			
+		}
+		响应结果类型：json
+		响应结果:{"code":"200","message":"",
+		"body":[{
+				"typeName":"",  //类型名称
+				"tid":""		//类型ID
+				},{.....}],"ok":true,"bad":false}
+----------------------------------------------------------------------------
+3.根据条件查询商品
+	方法： GET
+		资源路径: /api/goods/queryByWhere/list
+		请求参数类型：json
+		请求参数：{
+			品牌      	brands[]
+			价格      	beginPrice  ----  endPrice
+			类别       	types[]
+			排序字段:  order 销量 ： 1
+					                 价格 ： 2
+					               评论数: 3
+					                   新品: 4
+		}
+		响应结果类型：json
+		响应结果:{"code":"200","message":"",
+		"body":[{
+				"goodsName":"百年堂阿胶", 	        //商品名称
+				"price":109.00,"			       //原价
+				 promotionPrice":99.00,	          //促销价
+				"nowPrice":99.00,		         //根据促销价格判断当前价格是否促销和原价 用于排序
+				"weight":"360",                 //重量
+				"unit":"g",				       //重量单位
+				"thumb_path_1":"2号商品小图片",//展示图片
+				"goodsTitle":null,"			 //商品标题 
+				comment":5,					//评论数
+				"pro_start":null,		   //促销开始时间
+				"pro_end":null,		      //促销结束时间
+				"pro_flag":null,	     //促销标志  1 为促销   0位不促销
+				"visitTime":null,
+				"collectTime":null,
+				"gid":"15"              //商品ID
+				},{.....}],"ok":true,"bad":false}
+------------------------------------------------------------------------
+4.宝贝推荐
+	方法： GET
+		资源路径: /api/goods/recommend/list
+		请求参数类型：json
+		请求参数：{
+			
+		}
+		响应结果类型：json
+		响应结果:{"code":"200","message":"",
+		"body":[{
+			"goodsName":"",    //商品名称
+			"merchantName":"",  //店铺名称
+			"thumb_path_1":"", //展示图片
+			"gid":"1"        //商品ID
+			},{.....}],"ok":true,"bad":false}
+-------------------------------------------------------------------------
+5.根据条件查询相关商品的店铺
+	方法： GET
+		资源路径: /api/goods/goodsMerchantByWhere/list
+		请求参数类型：json
+		请求参数：{
+			品牌      	brands[]
+			价格      	beginPrice  ----  endPrice
+			类别       	types[]
+		}
+		响应结果类型：json
+		响应结果:{"code":"200","message":"",
+		"body":[{
+				"merchantName":"", //店铺名称
+				"merchantBrands":null, //出售品牌
+				"merchantDesc":"",  // 店铺介绍
+				"merchantImg":"",   //店铺图片
+				"goodscount":"",	//相关商品总数
+				"mid":"1"			//店铺ID
+			},{.....}],"ok":true,"bad":false}
+-----------------------------------------------------------------------------
+6.查询店铺下相关产品
+	方法： GET
+		资源路径: /api/goods/merchantGoodsByWhere4/list
+		请求参数类型：json
+		请求参数：{
+			品牌      	brands[]
+			价格      	beginPrice  ----  endPrice
+			类别       	types[]
+			店铺ID   MID
+		}
+		响应结果类型：json
+		响应结果:{"code":"200","message":"",
+		"body":[{
+				"goodsName":"百年堂阿胶", 	        //商品名称
+				"price":109.00,"			       //原价
+				 promotionPrice":99.00,	          //促销价
+				"nowPrice":99.00,		         //根据促销价格判断当前价格是否促销和原价 用于排序
+				"weight":"360",                 //重量
+				"unit":"g",				       //重量单位
+				"thumb_path_1":"2号商品小图片",//展示图片
+				"goodsTitle":null,"			 //商品标题 
+				comment":5,					//评论数
+				"pro_start":null,		   //促销开始时间
+				"pro_end":null,		      //促销结束时间
+				"pro_flag":null,	     //促销标志  1 为促销   0位不促销
+				"visitTime":null,
+				"collectTime":null,
+				"gid":"15"              //商品ID
+			},{.....}],"ok":true,"bad":false}
+-----------------------------------------------------------------------------------------
+7.查询店铺下相关产品--->更多相关产品
+	方法： GET
+		资源路径: /api/goods/merchantGoodsByWhereMax/list
+		请求参数类型：json
+		请求参数：{
+			品牌      	brands[]
+			价格      	beginPrice  ----  endPrice
+			类别       	types[]
+			店铺ID   MID
+		}
+		响应结果类型：json
+		响应结果:{"code":"200","message":"",
+		"body":[{
+				"goodsName":"百年堂阿胶", 	        //商品名称
+				"price":109.00,"			       //原价
+				 promotionPrice":99.00,	          //促销价
+				"nowPrice":99.00,		         //根据促销价格判断当前价格是否促销和原价 用于排序
+				"weight":"360",                 //重量
+				"unit":"g",				       //重量单位
+				"thumb_path_1":"2号商品小图片",//展示图片
+				"goodsTitle":null,"			 //商品标题 
+				comment":5,					//评论数
+				"pro_start":null,		   //促销开始时间
+				"pro_end":null,		      //促销结束时间
+				"pro_flag":null,	     //促销标志  1 为促销   0位不促销
+				"visitTime":null,
+				"collectTime":null,
+				"gid":"15"              //商品ID
+			},{.....}],"ok":true,"bad":false}
+-----------------------------------------------------------------------------
+8.推广商品
+	方法： GET
+		资源路径: /api/goods/expand/list
+		请求参数类型：json
+		请求参数：{
+			品牌      	brands[]
+			价格      	beginPrice  ----  endPrice
+			类别       	types[]
+			店铺ID   MID
+		}
+		响应结果类型：json
+		响应结果:{"code":"200","message":"",
+		"body":[{
+				"goodsName":"百年堂阿胶", 	        //商品名称
+				"price":109.00,"			       //原价
+				 promotionPrice":99.00,	          //促销价
+				"nowPrice":99.00,		         //根据促销价格判断当前价格是否促销和原价 用于排序
+				"weight":"360",                 //重量
+				"unit":"g",				       //重量单位
+				"thumb_path_1":"2号商品小图片",//展示图片
+				"goodsTitle":null,"			 //商品标题 
+				comment":5,					//评论数
+				"pro_start":null,		   //促销开始时间
+				"pro_end":null,		      //促销结束时间
+				"pro_flag":null,	     //促销标志  1 为促销   0位不促销
+				"visitTime":null,
+				"collectTime":null,
+				"gid":"15"              //商品ID
+			},{.....}],"ok":true,"bad":false}
+-----------------------------------------------------------------------------
+9.在结果中搜索
+	方法： GET
+		资源路径: /api/goods/goodsByResult/list
+		请求参数类型：json
+		请求参数：{
+			品牌      	brands[]
+			价格      	beginPrice  ----  endPrice
+			类别       	types[]
+			商品名 	goodsName 
+			排序字段:  order 销量 ： 1
+					                 价格 ： 2
+					               评论数: 3
+					                   新品: 4
+		}
+		响应结果类型：json
+		响应结果:{"code":"200","message":"",
+		"body":[{
+				"goodsName":"百年堂阿胶", 	        //商品名称
+				"price":109.00,"			       //原价
+				 promotionPrice":99.00,	          //促销价
+				"nowPrice":99.00,		         //根据促销价格判断当前价格是否促销和原价 用于排序
+				"weight":"360",                 //重量
+				"unit":"g",				       //重量单位
+				"thumb_path_1":"2号商品小图片",//展示图片
+				"goodsTitle":null,"			 //商品标题 
+				comment":5,					//评论数
+				"pro_start":null,		   //促销开始时间
+				"pro_end":null,		      //促销结束时间
+				"pro_flag":null,	     //促销标志  1 为促销   0位不促销
+				"visitTime":null,
+				"collectTime":null,
+				"gid":"15"              //商品ID
+			},{.....}],"ok":true,"bad":false}
+-----------------------------------------------------------------------------
+9.根据ID查询商品详细属性
+	方法： GET
+		资源路径:  /api/goods/getById/{gid}
+		请求参数类型：json
+		请求参数：{
+				{gid}：商品ID
+		}
+		响应结果类型：json
+		响应结果:{"code":"200","message":"",
+		"body":[{
+			"merchantName":null,   //店铺名
+			"merchantDesc":null,	//店铺描述
+			"merchantImg":null,    //店铺展示图
+			"brandName":null,     //品牌名
+			"brandDesc":null,		//品牌描述
+			"typeName":"阿胶膏",		//类型名称
+			"goodsName":"星期六阿胶-2-3",  //商品名称
+			"goodsCode":"JY006-2",		//商品编码
+			"price":333.22,				//价格
+			"promotionPrice":null,		//促销价格
+			"nowPrice":333.22,		//根据促销标志判断的价格或促销价格
+			"disCount":null,		//
+			"discountPrice":null,	//
+			"count":"930",		// 库存
+			"volume":null,		//销量
+			"addTime":null,		//添加时间
+			"pro_start":"2015-11-16 02:01:41",	//促销开始时间	
+			"pro_end":"2015-11-16 02:01:41",	//促销结束时间
+			"pro_flag":0,			//促销标志 0原价 1 促销
+			"upTime":null,//上架时间
+			"downTime":null,		//下架时间
+			"postage":null,   //邮费
+			"subVolumeType":0,	// 减库存方式
+			"barCode":null, //条形码
+			"goodsDesc":null,	// 商品描述
+			"goodsTitle":null,商品标题
+			"state":0,			// 上架状态 0 未上架 1 上架
+			"comment":0,  //评论数
+			"thumb_path_1":"D://img/1-2-3.jpg",	//展示图片1
+			"thumb_path_2":"D://img/2-2-3.jpg",	//展示图片2
+			"thumb_path_3":"D://img/3-2-3.jpg",	//展示图片3
+			"thumb_path_4":"D://img/4-2-3.jpg",	//展示图片4
+			"thumb_path_5":"D://img/5-2-3.jpg",	//展示图片5
+			"content":"<h3>hello-2-3<h3>",			//大图
+			"standardNo":"星期六阿胶标准号003-2",  //产品标准号
+			"shelfLife":null,   //保质期
+			"approveNo":null,//批准文号
+			"usage":null,  //食用方法和食用量
+			"commendedUser":null, //适宜人群
+			"notCommendedUser":null,       	 //不适宜人群
+			"ingredients":null, 	 //配料表
+			"foodAdditives":null,		 //食品添加剂
+			"specifications":null,	 //具体规格
+			"ingredient":null,	 //成分含量
+			"functions":null,	 //功能及功效
+			"note":null,	 //注意事项
+			"storageMethods":null, //储藏方法
+			"isGiftBox":null, //是否礼盒装
+			"weight":null,//重量
+			"unit":null,//单位
+			"factoryName":null,//生产厂家
+			"factoryAddr":null,//生产地址
+			"factoryTel":null,//厂家电话
+			"productionDate":null,//生产日期
+			"mid":"-2",				//所属商家ID
+			"gid":"-_ctCfR9ShK5_6tdISLLNA", 	//商品ID
+			"bid":"-2",				//品牌ID
+			"tid":"2"				//类型ID
+			},{.....}],"ok":true,"bad":false}
+----------------------------------------------------------------

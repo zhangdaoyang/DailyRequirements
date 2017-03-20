@@ -1,0 +1,81 @@
+国家、省、市维护
+一、国家
+	1)新增
+		方法： PUT
+		资源路径: /api/country
+		请求参数类型：json
+		请求参数：{
+			countryName:"countryName"//必填 			
+		}
+		响应类型：json
+		响应结果:{
+			code:"",
+			message:"",
+			body:{
+			}
+		}
+	2)删除
+		方法： DELETE
+		资源路径: /api/country/{id}
+		请求参数类型：json
+		请求参数：{	
+		}
+		响应类型：json
+		响应结果:{
+			code:"",
+			message:"",
+			body:{
+				"成功或失败"
+			}
+		}
+	3)修改	
+		方法： POST
+		资源路径: /api/country/{id}
+		请求参数类型：json
+		请求参数：{	
+			countryName:"名称"//必填
+		}
+		响应类型：json
+		响应结果:{
+			code:"",
+			message:"",
+			body:{
+				"成功或失败"
+			}
+		}
+	4)详情	
+		方法： GET
+		资源路径: /api/country/{id}
+		请求参数类型：json
+		请求参数：{	
+			
+		}
+		响应类型：json
+		响应结果:{
+			code:"",
+			message:"",
+			body:{
+				"countryID":1
+				,"countryName":"中国"
+			}
+		}
+		
+	5)列表查询
+		方法： GET
+		资源路径: /api/country/list
+		请求参数类型：json
+		请求参数：{	
+			
+		}
+		响应类型：json
+		响应结果:{
+			code:"",
+			message:"",
+			body:[
+				{
+					"countryID":1
+					,"countryName":"中国"
+				},
+				{……}
+			]	
+		}

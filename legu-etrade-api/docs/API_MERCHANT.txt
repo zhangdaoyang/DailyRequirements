@@ -1,0 +1,169 @@
+1)首页商家推荐查询:
+	方法： GET
+	资源路径: /api/merchant/recommend/list
+	请求参数类型：json
+	请求参数：{
+		无
+	}
+	响应结果类型：json
+	响应结果:{
+		code:"",
+		message:"",
+		body:{
+			ID:"主键",
+			merchantName:"商家名称",
+			merchantEname:"商家英文名称",
+			merchantCode:"商家编码",
+			merchantAddress:"商家地址",
+			merchantScale:"商家规模",
+			employeeNum:"员工人数（人）",
+			tel:"电话",
+			zipcode:"邮编",
+			qq:"qq",
+			twoDimensionCode:"二维码路径",
+			registerDate:"注册时间",
+			adminSortNum:"管理员排序",
+			merchantDesc:"商家描述",
+			invoiceFlag:"是否开具发票 0否1是 "
+		},{...},{...},{...}
+	}
+	
+2) 商家保存:
+	方法： POST
+	资源路径: /api/merchant/savemerchant
+	请求参数类型：json
+	请求参数：{
+			merchantName:"商家名称",
+			merchantEname:"商家英文名称",
+			merchantCode:"商家编码",
+			merchantAddress:"商家地址",
+			merchantScale:"商家规模",
+			employeeNum:"员工人数（人）",
+			tel:"电话",
+			zipcode:"邮编",
+			qq:"qq",
+			twoDimensionCode:"二维码路径",
+			registerDate:"注册时间",
+			merchantDesc:"商家描述",
+			invoiceFlag:"是否开具发票 0否1是 ",
+			invoiceCodes:"发票的类型",//发票类型的字符串如：T001,T002
+			deliveryCodes:"快递的类型"//快递类型的字符串如：D001,D002
+	}
+	响应类型：json
+	响应结果:{
+		code:"",
+		message:"",
+		body:{
+			ID:"",
+			GID:"商品ID",//必填
+			gname:"商品名称",//必填
+			MID:"商家ID",//必填
+			mname:"商家名",//必填
+			price:"商品价格",//必填
+			count:"商品个数"//必填
+		}
+	}
+
+3)获取发票类型:
+	方法： GET
+	资源路径: /api/merchant/invoicetype/list
+	请求参数类型：json
+	请求参数：{
+		无
+	}
+	响应结果类型：json
+	响应结果:{
+		code:"",
+		message:"",
+		body:{
+			code:"编码",
+			name:"名称",
+			remark:"备注"
+		},{...},{...},{...}
+	}
+	
+4) 商家信息修改:
+	方法： POST
+	资源路径: /api/merchant/updatemerchant
+	请求参数类型：json
+	请求参数：{
+			ID:"ID",
+			merchantName:"商家名称",
+			merchantEname:"商家英文名称",
+			merchantCode:"商家编码",
+			merchantAddress:"商家地址",
+			merchantScale:"商家规模",
+			employeeNum:"员工人数（人）",
+			tel:"电话",
+			zipcode:"邮编",
+			qq:"qq",
+			twoDimensionCode:"二维码路径",
+			registerDate:"注册时间",
+			merchantDesc:"商家描述",
+			invoiceFlag:"是否开具发票 0否1是 ",
+			invoiceCodes:"发票的类型",//发票类型的字符串如：T001,T002
+			deliveryCodes:"快递的类型"//快递类型的字符串如：D001,D002
+	}
+	响应类型：json
+	响应结果:{
+		code:"",
+		message:"",
+		body:{
+			ID:"",
+			GID:"商品ID",//必填
+			gname:"商品名称",//必填
+			MID:"商家ID",//必填
+			mname:"商家名",//必填
+			price:"商品价格",//必填
+			count:"商品个数"//必填
+		}
+	}
+5)获取快递类型:
+	方法： GET
+	资源路径: /api/merchant/deliverytype/list
+	请求参数类型：json
+	请求参数：{
+		无
+	}
+	响应结果类型：json
+	响应结果:{
+		code:"",
+		message:"",
+		body:{
+			code:"编码",
+			name:"名称",
+			description:"备注"
+		},{...},{...},{...}
+	}
+6)查询商家信息:
+	方法： GET
+	资源路径: /api/merchant/info/{mid}
+	请求参数类型：json
+	请求参数：{
+		无
+	}
+	响应结果类型：json
+	响应结果:{
+		code:"",
+		message:"",
+		body:{
+			ID:"ID",
+			merchantName:"商家名称",
+			merchantEname:"商家英文名称",
+			merchantCode:"商家编码",
+			merchantAddress:"商家地址",
+			merchantScale:"商家规模",
+			employeeNum:"员工人数（人）",
+			tel:"电话",
+			zipcode:"邮编",
+			qq:"qq",
+			twoDimensionCode:"二维码路径",
+			registerDate:"注册时间",
+			adminSortNum:"管理员排序",
+			merchantDesc:"商家描述",
+			invoiceFlag:"是否开具发票 0否1是 ",
+			invoiceCodes:"发票的类型",//发票类型的字符串如：T001,T002
+			deliveryCodes:"快递的类型"//快递类型的字符串如：D001,D002
+		}
+	}
+	

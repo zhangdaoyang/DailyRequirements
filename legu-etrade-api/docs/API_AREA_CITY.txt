@@ -1,0 +1,106 @@
+
+市
+1)新增
+		方法： PUT
+		资源路径: /api/city
+		请求参数类型：json
+		请求参数：{
+			cityName:"cityName" , //必填 			
+			provinceID : 123 //所属省
+		}
+		响应类型：json
+		响应结果:{
+			code:"",
+			message:"",
+			body:{
+			}
+		}
+	2)删除
+		方法： DELETE
+		资源路径: /api/city/{id}
+		请求参数类型：json
+		请求参数：{	
+		}
+		响应类型：json
+		响应结果:{
+			code:"",
+			message:"",
+			body:{
+				"成功或失败"
+			}
+		}
+	3)修改	
+		方法： POST
+		资源路径: /api/city/{id}
+		请求参数类型：json
+		请求参数：{	
+			cityName:"城市名称", //选填
+			provinceID :"所属省" //选填
+		}
+		响应类型：json
+		响应结果:{
+			code:"",
+			message:"",
+			body:{
+				"成功或失败"
+			}
+		}
+	4)详情	
+		方法： GET
+		资源路径: /api/city/{id}
+		请求参数类型：json
+		请求参数：{	
+			
+		}
+		响应类型：json
+		响应结果:{
+			code:"",
+			message:"",
+			body:{
+				"cityID":城市id
+				,"cityName":"名称"
+				,"provinceID":省id
+			}
+		}
+		
+	5)列表查询
+		方法： GET
+		资源路径: /api/city/list
+		请求参数类型：json
+		请求参数：{	
+			provinceID :"省id" //选填
+		}
+		响应类型：json
+		响应结果:{
+			code:"",
+			message:"",
+			body:[
+				{
+					"cityID":城市id
+					,"cityName":"名称"
+					,"provinceID":省id
+				},
+				{……}
+			]	
+		}
+		
+	6)根据省查city
+		方法： GET
+		资源路径: /api/city/list/{provinceID}
+		请求参数类型：json
+		请求参数：{	
+			
+		}
+		响应类型：json
+		响应结果:{
+			code:"",
+			message:"",
+			body:[
+				{
+					"cityID":城市id
+					,"cityName":"名称"
+					,"provinceID":省id
+				},
+				{……}
+			]	
+		}	

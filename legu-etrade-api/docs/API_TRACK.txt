@@ -1,0 +1,164 @@
+1)我的足迹商品查询:
+	方法： GET
+	资源路径: /api/track/footprint/list
+	请求参数类型：json
+	请求参数：{
+		无
+	}
+	响应结果类型：json
+	响应结果:{
+		code:"",
+		message:"",
+		bad:"",
+		body:{
+			collectTime: "我的收藏收藏时间",
+			comment: "商品评论数",
+			gid: "GID",
+			goodsName: "商品名",
+			goodsTitle: "宝贝标题",
+			nowPrice: "现价",
+			price: "原价",
+			pro_end: "促销结束时间",
+			pro_flag: "是否促销标志",
+			pro_start: "促销开始时间",
+			promotionPrice: "促销价格",
+			thumb_path_1: "缩略图",
+			unit: "单位",
+			visitTime: "我的足迹浏览时间",
+			weight: "重量"
+			}
+		},{...},{...},{...}
+	}
+
+2)我的足迹商品保存:
+	方法： GET
+	资源路径: /api/track/footprint/save
+	请求参数类型：json
+	请求参数：{
+		gid:"商品ID"
+	}
+	响应结果类型：json
+	响应结果:{//成功返回“足迹保存成功！” 失败返回“足迹保存失败！”
+		code:"",
+		message:"",
+		bad:"",
+		body: ,
+	}
+3)我的收藏商家保存:
+	方法： GET
+	资源路径: /api/track/favorites/savemerchant
+	请求参数类型：json
+	请求参数：{
+		mid:"商家ID"
+	}
+	响应结果类型：json
+	响应结果:{//成功返回“收藏成功！” 失败返回“收藏失败！”
+		code:"",
+		message:"",
+		bad:"",
+		body: ,
+	}
+
+4)我的收藏商品保存:
+	方法： GET
+	资源路径: /api/track/favorites/savegoods
+	请求参数类型：json
+	请求参数：{
+		gid:"商品ID"
+	}
+	响应结果类型：json
+	响应结果:{//成功返回“收藏成功！” 失败返回“收藏失败！”
+		code:"",
+		message:"",
+		bad:"",
+		body: ,
+	}
+ 
+5)查询我的收藏（商家）
+	方法： GET
+	资源路径: /api/track/favorites/listmerchantfavorites
+	请求参数类型：json
+	请求参数：{
+		无
+	}
+	响应结果类型：json
+	响应结果:{
+		code:"",
+		message:"",
+		bad:"",
+		body:{
+			collectTime: "我的收藏收藏时间",
+			comment: "商品评论数",
+			gid: "GID",
+			goodsName: "商品名",
+			goodsTitle: "宝贝标题",
+			nowPrice: "现价",
+			price: "原价",
+			pro_end: "促销结束时间",
+			pro_flag: "是否促销标志",
+			pro_start: "促销开始时间",
+			promotionPrice: "促销价格",
+			thumb_path_1: "缩略图",
+			unit: "单位",
+			visitTime: "我的足迹浏览时间",
+			weight: "重量"
+			}
+		},{...},{...},{...}
+	}
+	
+6)查询我的收藏（商品）
+	方法： GET
+	资源路径: /api/track/favorites/listgoodsfavorites
+	请求参数类型：json
+	请求参数：{
+		无
+	}
+	响应结果类型：json
+	响应结果:{
+		code:"",
+		message:"",
+		bad:"",
+		body:{
+			goodsList:[{
+			collectTime: "我的收藏收藏时间",
+			comment: "商品评论数",
+			gid: "GID",
+			goodsName: "商品名",
+			goodsTitle: "宝贝标题",
+			nowPrice: "现价",
+			price: "原价",
+			pro_end: "促销结束时间",
+			pro_flag: "是否促销标志",
+			pro_start: "促销开始时间",
+			promotionPrice: "促销价格",
+			thumb_path_1: "缩略图",
+			unit: "单位",
+			visitTime: "我的足迹浏览时间",
+			weight: "重量",
+			},{……},{……}],
+			merchantVO:{
+			adminSortNum: "管理员排序",
+			deliveryCodes: "快递的类型",
+			deliverylist: "快递类型列表",
+			employeeNum: "员工人数（人）",
+			id: "主键",
+			imgPath: "商家图片路径",
+			invoiceCodes: "发票的类型",
+			invoiceFlag: "是否开具发票 0否1是",
+			invoiceList: "发票的类型",
+			merchantAddress: "商家地址",
+			merchantCode: "商家编码",
+			merchantDesc: "商家描述",
+			merchantEname: "商家英文名称",
+			merchantName: "商家名称",
+			merchantScale: "商家规模",
+			qq: "qq",
+			registerDate: "注册时间",
+			tel: "电话",
+			twoDimensionCode: "二维码路径",
+			zipcode: "邮编"
+			}
+			mid:"商家ID"
+		}, 
+	}
+ 

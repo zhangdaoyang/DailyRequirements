@@ -1,0 +1,107 @@
+
+省
+1)新增
+		方法： PUT
+		资源路径: /api/province
+		请求参数类型：json
+		请求参数：{
+			provinceName:"provinceName" , //必填 			
+			countryID : 123 //所属国家
+		}
+		响应类型：json
+		响应结果:{
+			code:"",
+			message:"",
+			body:{
+			}
+		}
+	2)删除
+		方法： DELETE
+		资源路径: /api/province/{id}
+		请求参数类型：json
+		请求参数：{	
+		}
+		响应类型：json
+		响应结果:{
+			code:"",
+			message:"",
+			body:{
+				"成功或失败"
+			}
+		}
+	3)修改	
+		方法： POST
+		资源路径: /api/province/{id}
+		请求参数类型：json
+		请求参数：{	
+			provinceName:"省名称", //选填
+			countryID :"国家id" //选填
+		}
+		响应类型：json
+		响应结果:{
+			code:"",
+			message:"",
+			body:{
+				"成功或失败"
+			}
+		}
+	4)详情	
+		方法： GET
+		资源路径: /api/province/{id}
+		请求参数类型：json
+		请求参数：{	
+			
+		}
+		响应类型：json
+		响应结果:{
+			code:"",
+			message:"",
+			body:{
+				"provinceID":省份id
+				,"provinceName":"名称"
+				,"countryID":国家id
+			}
+		}
+		
+	5)列表查询
+		方法： GET
+		资源路径: /api/province/list
+		请求参数类型：json
+		请求参数：{	
+			countryID :"国家id" //选填
+		}
+		响应类型：json
+		响应结果:{
+			code:"",
+			message:"",
+			body:[
+				{
+					"provinceID":1
+					,"provinceName":"名称"
+					,"countryID":国家id
+				},
+				{……}
+			]	
+		}
+		
+		
+	6)根据国家查询
+		方法： GET
+		资源路径: /api/province/list/{countryID}
+		请求参数类型：json
+		请求参数：{	
+			
+		}
+		响应类型：json
+		响应结果:{
+			code:"",
+			message:"",
+			body:[
+				{
+					"provinceID":1
+					,"provinceName":"名称"
+					,"countryID":国家id
+				},
+				{……}
+			]	
+		}	
